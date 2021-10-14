@@ -30,7 +30,7 @@
   }
 
   let ticking = false;
-  document.getElementById("content").addEventListener("scroll", function(e) {
+  document.getElementById("content").addEventListener("scroll", (e) => {
     if (!ticking) {
       window.requestAnimationFrame(function() {
         let viewportHeight = window.visualViewport.height;
@@ -48,5 +48,12 @@
 
       ticking = true;
     }
-  })  
+  })
+
+  document.getElementById("disclosure").addEventListener("click", (e) => {
+    document.getElementById("container").classList.toggle("reveal-sidebar")
+  })
+  document.getElementById("mask").addEventListener("click", (e) => {
+    document.getElementById("container").classList.toggle("reveal-sidebar")
+  })
 })()
