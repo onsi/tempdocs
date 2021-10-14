@@ -20,12 +20,14 @@ body {
 	background-color: #fff;
 	overflow-y: scroll;
 	padding: 5px;
+	padding-right:10px;
 }
 
 #sidebar {
 	background-color: #fff;
 	overflow-y: scroll;
 	padding:5px;
+	position:relative;
 }
 
 #mask {
@@ -45,6 +47,10 @@ body {
 	padding:3px 0;
 }
 
+.sidebar-heading.active {
+	font-weight:bold;
+}
+
 #sidebar hr {
     border: 0;
     height: 1px;
@@ -54,18 +60,47 @@ body {
 .sidebar-item {
 	font-size: 0.8rem;
 	margin: 3px 0 3px 10px;
-
 }
+
 .sidebar-item:nth-child(2n+1) {
 	color:#555;
 }
 
+.sidebar-item.active {
+	font-weight:bold;	
+	color: #000;
+}
+
 .sidebar-section {
-	display: none;
+	overflow: hidden;
+	max-height: 0;
+	// transition: max-height 0.3s;
 }
 
 .sidebar-heading.active + .sidebar-section {
-	display: block;
+	max-height: 1000px;    
+}
+
+/* background */
+
+#left-background, #right-background {
+	height:100vh;
+	overflow: hidden;
+	opacity:0.4;
+}
+
+.dot {
+	display: inline-block;
+	width:12px;
+	height:12px;
+	background-color: #66F870;
+	border-radius: 10px;
+	margin:10px;
+	transition: background-color 0.3s;
+}
+
+.dot.red {
+	background-color: #ff0000;
 }
 
 /* header */
@@ -82,6 +117,11 @@ body {
 
 .spacer {
 	flex: 1;
+}
+
+.logo {
+	max-height: 22px;
+	margin: 0 5px;
 }
 
 #disclosure {
@@ -124,14 +164,22 @@ body {
 		--sidebar-width: 200px;
 
 		display: grid;
-		grid-template-areas: ". header header ."
-							 ". sidebar content .";
+		grid-template-areas: "left-background header header right-background"
+							 "left-background sidebar content right-background";
 		grid-template-columns: 1fr var(--sidebar-width) minmax(calc(var(--breakpoint) - var(--sidebar-width)), var(--max-width)) 1fr;
 		grid-template-rows: var(--header-height) auto;
 		gap: 0;
 
 		height:100vh;
 	}	
+
+	#left-background {
+		grid-area; left-background;
+	}
+
+	#right-background {
+		grid-area; right-background;
+	}
 
 	#header {
 		grid-area: header;
@@ -172,6 +220,14 @@ body {
 
 	#content {
 		grid-area: content;
+	}
+
+	#left-background {
+		display: none;
+	}
+
+	#right-background {
+		display: none;
 	}
 
 	#sidebar {

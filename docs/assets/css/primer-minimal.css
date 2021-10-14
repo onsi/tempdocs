@@ -11,8 +11,17 @@
     margin-bottom: 0 !important;
 }
 
-.markdown-body a:not([href]) {
-    color: inherit;
+.markdown-body a {
+    color: #000;
+    text-decoration: underline;
+}
+
+.markdown-body a:visited {
+    color: #333;
+    text-decoration: underline;
+}
+
+.markdown-body .anchorjs-link {
     text-decoration: none;
 }
 
