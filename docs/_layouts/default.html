@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <div class="brand">Ginkgo</div>
+        <div class="spacer"></div>
+        <div id="disclosure">
+          <div class="hamburger-slice"></div>
+          <div class="hamburger-slice"></div>
+          <div class="hamburger-slice"></div>
+        </div>
+      </div>
+      <div id="sidebar">
+      </div>
+      <div id="content" class="markdown-body col-10">
+        {{ content }}
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+
+    <script src="{{ "/assets/js/sidebarlinks.js" | relative_url }}"></script>
+  </body>
+</html>

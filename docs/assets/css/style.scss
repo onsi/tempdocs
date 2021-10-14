@@ -1,0 +1,153 @@
+---
+---
+
+@import "jekyll-theme-ginkgo";
+
+:root {
+	--max-width: 1024px;
+	--header-height: 50px;
+	--breakpoint: 640px;
+}
+
+body {
+	margin: 0;
+	background-color: #000;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+#header {
+	background-color: #000;
+	color: #fff;
+}
+
+#content {
+	background-color: #fff;
+	overflow-y: scroll;
+	padding: 5px;
+}
+
+#sidebar {
+	background-color: #fff;
+	overflow-y: scroll;
+	padding:5px;
+}
+
+/* sidebar items */
+
+.sidebar-heading, .sidebar-item {
+	display:block;
+	text-decoration: none;
+	color: #000;
+}
+
+.sidebar-heading {
+	margin:5px 0;
+	padding:3px 0;
+}
+
+#sidebar hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+}
+
+.sidebar-item {
+	font-size: 0.8rem;
+	margin: 3px 0 3px 10px;
+
+}
+.sidebar-item:nth-child(2n+1) {
+	color:#555;
+}
+
+.sidebar-section {
+	display: none;
+}
+
+.sidebar-heading.active + .sidebar-section {
+	display: block;
+}
+
+/* header */
+
+#header {
+	display: flex;
+	align-items: center;
+}
+
+.brand {
+	font-size: 2rem;
+	margin-left:5px;
+}
+
+.spacer {
+	flex: 1;
+}
+
+#disclosure {
+	box-sizing: border-box;
+	width: var(--header-height);
+	height: var(--header-height);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	padding: 12px 0;
+	cursor: pointer;
+}
+
+.hamburger-slice {
+	width: calc(var(--header-height) - 20px);
+	height: 2px;
+	border-radius: 4px;
+	background-color: #fff;
+}
+
+/* content styling */
+
+#content hr {
+    border: 0;
+    height: 1px;
+    margin: 30px 0;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+	background-color: transparent;
+}
+
+#content h2 {
+	border-bottom: none;
+}
+
+/* Desktop */
+@media screen and (min-width: 640px) {
+	#container {
+		--sidebar-width: 200px;
+
+		display: grid;
+		grid-template-areas: ". header header ."
+							 ". sidebar content .";
+		grid-template-columns: 1fr var(--sidebar-width) minmax(calc(var(--breakpoint) - var(--sidebar-width)), var(--max-width)) 1fr;
+		grid-template-rows: var(--header-height) auto;
+		gap: 0;
+
+		height:100vh;
+	}	
+
+	#header {
+		grid-area: header;
+	}
+
+	#sidebar {
+		grid-area: sidebar;
+		border-right: 5px solid #fff;
+	}
+
+	#content {
+		grid-area: content;
+	}
+}
+
+/* Mobile */
+@media screen and (max-width: 640px) {
+	
+}
